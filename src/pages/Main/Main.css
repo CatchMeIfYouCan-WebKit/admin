@@ -1,0 +1,12 @@
+.main-button {
+    font-size: 20px;
+    padding: 16px 32px;
+    background-color: #f29b30;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.main-button:hover {
+    background-color: #e68910;
+}

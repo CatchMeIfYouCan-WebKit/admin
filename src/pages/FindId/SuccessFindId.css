@@ -1,0 +1,75 @@
+.success-findid-body {
+    text-align: center;
+    margin-top: 30px;
+    font-family: sans-serif;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.success-findid-body.fade-out {
+    opacity: 0;
+}
+
+.success-findid-body .title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.success-findid-body .subtitle {
+    font-size: 24px !important;
+    color: #010101;
+    line-height: 1.5;
+}
+
+.success-findid-body .divider {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+.success-findid-body .user-id {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+.success-findid-body .button-group {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.success-findid-body .btn {
+    width: 200px; /* ✅ 버튼 너비 고정 */
+    height: 56px; /* ✅ 버튼 높이 고정 */
+    padding: 0;
+    margin: 0;
+    flex: none; /* ✅ flex-grow, shrink 제거 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.success-findid-body .login-btn {
+    background-color: #f4a340;
+    color: white;
+}
+
+.success-findid-body .findpw-btn {
+    background-color: white;
+    color: #f4a340;
+    border: 1px solid #f4a340;
+}
