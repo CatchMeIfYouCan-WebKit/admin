@@ -186,19 +186,6 @@ export default function SignupBody() {
             </div>
 
             <div className="input-group">
-                <label>닉네임</label>
-                <input
-                    type="text"
-                    value={nickname}
-                    onChange={(e) => setNickname(e.target.value)}
-                    placeholder="닉네임 입력"
-                />
-                {nickMessage && (
-                    <p className={nickMessage.includes('사용 가능') ? 'success' : 'error'}>{nickMessage}</p>
-                )}
-            </div>
-
-            <div className="input-group">
                 <label>수의사 면허번호 등록</label>
                 <input type="text" placeholder="면허번호 입력" />
             </div>
