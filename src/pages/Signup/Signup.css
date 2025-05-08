@@ -42,7 +42,7 @@
 .signup-body {
     width: 100%;
     max-width: 360px;
-    margin: 40px auto 0;
+    margin: 20px auto 0;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -80,7 +80,6 @@
 
 .next-button {
     margin-top: 10px;
-    padding: 14px 0;
     background-color: #f4a340;
     color: white;
     border: none;
@@ -89,6 +88,9 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 48px;
 }
 
 .next-button:hover {
@@ -112,4 +114,28 @@
 .next-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+/* 면허증 사진 업로드 버튼 */
+.photo-upload {
+    width: 100px;
+    height: 100px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.camera-icon {
+    font-size: 28px;
+    color: #aaa;
+}
+
+.photo-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }

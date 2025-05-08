@@ -1,5 +1,8 @@
+// SignupBody.jsx
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineCamera } from 'react-icons/ai';
 
 export default function SignupBody() {
     const [userId, setUserId] = useState('');
@@ -7,6 +10,8 @@ export default function SignupBody() {
     const [userPwConfirm, setUserPwConfirm] = useState('');
     const [nickname, setNickname] = useState('');
     const [phone, setPhone] = useState('');
+    const [licenseImage, setLicenseImage] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
 
     const [idMessage, setIdMessage] = useState('');
     const [pwMessage, setPwMessage] = useState('');
@@ -16,16 +21,13 @@ export default function SignupBody() {
 
     const navigate = useNavigate();
 
-    // 회원가입 api 요청
     const handleSignup = async () => {
         if (!isFormValid) return;
 
         try {
             const response = await fetch('/api/member/join', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     loginId: userId,
                     password: userPw,
@@ -35,8 +37,6 @@ export default function SignupBody() {
             });
 
             const result = await response.json();
-            console.log(result); // 응답 결과 확인용
-
             if (response.ok && result.body.rsltCode === '0000') {
                 navigate('/successsignup');
             } else {
@@ -48,12 +48,19 @@ export default function SignupBody() {
         }
     };
 
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setLicenseImage(file);
+            setPreviewUrl(URL.createObjectURL(file));
+        }
+    };
+
     useEffect(() => {
         if (userId.trim() === '') {
             setIdMessage('');
             return;
         }
-
         const timer = setTimeout(async () => {
             try {
                 const res = await fetch('/api/member/duplicate', {
@@ -64,21 +71,17 @@ export default function SignupBody() {
 
                 const result = await res.json();
                 const { rsltCode, rsltMsg, dupYn } = result.body;
-
                 if (rsltCode === '0000' && dupYn === 'N') {
                     setIdMessage('사용 가능한 아이디입니다.');
                 } else if (rsltCode === '2002' && dupYn === 'Y') {
                     setIdMessage('중복된 아이디입니다.');
-                } else if (rsltCode === '2001') {
-                    setIdMessage('아이디 형식이 올바르지 않습니다. (5자 이상)');
                 } else {
                     setIdMessage(rsltMsg || '아이디 확인 실패');
                 }
-            } catch (e) {
+            } catch {
                 setIdMessage('서버 오류');
             }
         }, 300);
-
         return () => clearTimeout(timer);
     }, [userId]);
 
@@ -88,11 +91,7 @@ export default function SignupBody() {
             return;
         }
         const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-        if (pwRegex.test(userPw)) {
-            setPwMessage('');
-        } else {
-            setPwMessage('영문, 숫자, 특수문자 포함 8자 이상 입력하세요.');
-        }
+        setPwMessage(pwRegex.test(userPw) ? '' : '영문, 숫자, 특수문자 포함 8자 이상 입력하세요.');
     }, [userPw]);
 
     useEffect(() => {
@@ -100,11 +99,7 @@ export default function SignupBody() {
             setPwConfirmMessage('');
             return;
         }
-        if (userPw === userPwConfirm) {
-            setPwConfirmMessage('비밀번호가 일치합니다.');
-        } else {
-            setPwConfirmMessage('비밀번호가 일치하지 않습니다.');
-        }
+        setPwConfirmMessage(userPw === userPwConfirm ? '비밀번호가 일치합니다.' : '비밀번호가 일치하지 않습니다.');
     }, [userPw, userPwConfirm]);
 
     useEffect(() => {
@@ -112,7 +107,6 @@ export default function SignupBody() {
             setNickMessage('');
             return;
         }
-
         const timer = setTimeout(async () => {
             try {
                 const res = await fetch('/api/member/duplicate/nickname', {
@@ -123,7 +117,6 @@ export default function SignupBody() {
 
                 const result = await res.json();
                 const { rsltCode, rsltMsg, dupYn } = result.body;
-
                 if (rsltCode === '0000' && dupYn === 'N') {
                     setNickMessage('사용 가능한 닉네임입니다.');
                 } else if (rsltCode === '2002' && dupYn === 'Y') {
@@ -131,25 +124,22 @@ export default function SignupBody() {
                 } else {
                     setNickMessage(rsltMsg || '닉네임 확인 실패');
                 }
-            } catch (e) {
+            } catch {
                 setNickMessage('서버 오류');
             }
         }, 300);
-
         return () => clearTimeout(timer);
     }, [nickname]);
 
     useEffect(() => {
-        if (phone.trim() === '') {
-            setPhoneMessage('');
-            return;
-        }
         const phoneRegex = /^010\d{8}$/;
-        if (phoneRegex.test(phone)) {
-            setPhoneMessage('올바른 형식입니다.');
-        } else {
-            setPhoneMessage('010으로 시작하는 11자리 숫자를 입력하세요.');
-        }
+        setPhoneMessage(
+            phone.trim() === ''
+                ? ''
+                : phoneRegex.test(phone)
+                ? '올바른 형식입니다.'
+                : '010으로 시작하는 11자리 숫자를 입력하세요.'
+        );
     }, [phone]);
 
     const isFormValid =
@@ -164,20 +154,20 @@ export default function SignupBody() {
                 <label>아이디</label>
                 <input
                     type="text"
-                    placeholder="아이디 입력"
                     value={userId}
                     onChange={(e) => setUserId(e.target.value)}
+                    placeholder="아이디 입력"
                 />
-                {idMessage && <p className={idMessage.includes('사용 가능') ? 'success' : 'error'}>{idMessage}</p>}{' '}
+                {idMessage && <p className={idMessage.includes('사용 가능') ? 'success' : 'error'}>{idMessage}</p>}
             </div>
 
             <div className="input-group">
                 <label>비밀번호</label>
                 <input
                     type="password"
-                    placeholder="영문, 숫자, 특수문자 포함 8자리 이상"
                     value={userPw}
                     onChange={(e) => setUserPw(e.target.value)}
+                    placeholder="비밀번호 입력"
                 />
                 {pwMessage && <p className="error">{pwMessage}</p>}
             </div>
@@ -186,12 +176,12 @@ export default function SignupBody() {
                 <label>비밀번호 확인</label>
                 <input
                     type="password"
-                    placeholder="비밀번호 다시 입력"
                     value={userPwConfirm}
                     onChange={(e) => setUserPwConfirm(e.target.value)}
+                    placeholder="비밀번호 확인"
                 />
                 {pwConfirmMessage && (
-                    <p className={pwConfirmMessage.includes('일치합니다') ? 'success' : 'error'}>{pwConfirmMessage}</p>
+                    <p className={pwConfirmMessage.includes('일치') ? 'success' : 'error'}>{pwConfirmMessage}</p>
                 )}
             </div>
 
@@ -199,9 +189,9 @@ export default function SignupBody() {
                 <label>닉네임</label>
                 <input
                     type="text"
-                    placeholder="닉네임 입력"
                     value={nickname}
                     onChange={(e) => setNickname(e.target.value)}
+                    placeholder="닉네임 입력"
                 />
                 {nickMessage && (
                     <p className={nickMessage.includes('사용 가능') ? 'success' : 'error'}>{nickMessage}</p>
@@ -209,12 +199,42 @@ export default function SignupBody() {
             </div>
 
             <div className="input-group">
+                <label>수의사 면허번호 등록</label>
+                <input type="text" placeholder="면허번호 입력" />
+            </div>
+
+            <div className="input-group">
+                <label>면허증 사진 업로드</label>
+                <div className="photo-upload">
+                    <label htmlFor="license-upload">
+                        {previewUrl ? (
+                            <img src={previewUrl} alt="미리보기" className="photo-preview" />
+                        ) : (
+                            <AiOutlineCamera className="camera-icon" />
+                        )}
+                    </label>
+                    <input
+                        id="license-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        style={{ display: 'none' }}
+                    />
+                </div>
+            </div>
+
+            <div className="input-group">
+                <label>동물병원 등록</label>
+                <input type="text" placeholder="동물병원 입력" />
+            </div>
+
+            <div className="input-group">
                 <label>휴대전화</label>
                 <input
                     type="tel"
-                    placeholder="휴대전화 입력"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
+                    placeholder="휴대전화 입력"
                 />
                 {phoneMessage && (
                     <p className={phoneMessage.includes('올바른') ? 'success' : 'error'}>{phoneMessage}</p>
