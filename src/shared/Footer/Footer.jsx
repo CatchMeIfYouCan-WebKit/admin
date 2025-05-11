@@ -1,15 +1,9 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import Map from '../../assets/Map.svg';
-import MapActive from '../../assets/MapSelect.svg';
 import Home from '../../assets/Home.svg';
 import HomeActive from '../../assets/HomeSelect.svg';
 import Chat from '../../assets/Chat.svg';
-import ChatActive from '../../assets/ChatSelect.svg';
-import Adoption from '../../assets/Adoption.svg';
-import AdoptionActive from '../../assets/AdoptionSelect.svg';
-import Medical from '../../assets/Medical.svg';
-import MedicalActive from '../../assets/MedicalSelect.svg';
+import PatientsActive from '../../assets/ChatSelect.svg';
 import './Footer.css';
 import profile from '../../assets/myprofile2.svg';
 import profileActive from '../../assets/myprofile2Select.svg';
@@ -18,7 +12,7 @@ export default function Footer() {
     const currentPath = location.pathname;
 
     const navItems = [
-        { path: '/chat', label: '채팅', icon: Chat, activeIcon: ChatActive },
+        { path: '/patients', label: '환자관리', icon: Chat, activeIcon: PatientsActive },
         { path: '/main', label: '홈', icon: Home, activeIcon: HomeActive },
         { path: '/mypage', label: '마이페이지', icon: profile, activeIcon: profileActive },
     ];

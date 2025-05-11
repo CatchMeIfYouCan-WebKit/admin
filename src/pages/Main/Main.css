@@ -51,12 +51,11 @@
 
 /* 카드 */
 .vet-card {
-    border: 2px solid #767676; /* 테두리 색과 굵기 */
-
+    border: 2px solid #169976; /* 테두리 색과 굵기 */
     background-color: #fff;
     border-radius: 12px;
     padding: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -68,18 +67,31 @@
 }
 
 .vet-title-bold {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
 }
-.vet-title-desc {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
+
 .vet-title-sub {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     margin-left: 20px;
+    margin-top: 80px;
+}
+
+.vet-title2-bold {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.vet-title2-desc {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 25px;
+    text-align: left;
+
+    color: #111111;
 }
 
 .vet-arrow {
@@ -89,12 +101,23 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    margin-top: 16px;
+}
+
+.vet-arrow2 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 48px;
 }
 
 .vet-arrow img {
     margin-top: 32px;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
 }
 
@@ -103,24 +126,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 12px;
 }
 
 .vet-small-text {
     font-size: 12px;
-    color: #aaa;
+    color: #222222;
     margin-right: 10px;
+    font-weight: 600;
 }
+
 .vet-subtext {
     font-size: 12px;
-    color: #999;
-    margin-top: -12px;
+    color: #222222;
+    margin-top: -16px;
     margin-bottom: 10px;
     margin-left: 2px; /* 정렬 맞추기 위해 소폭 좌측 여백 */
     text-align: left;
+    font-weight: 500;
 }
+
 /* 표 */
 .vet-table {
     width: 100%;
@@ -132,18 +159,16 @@
 .vet-table-row {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    padding: 4px 0;
 }
 
 .vet-table-row.header {
     font-weight: bold;
     font-size: 12px;
-    border-bottom: 2px solid #ccc;
+    color: #169976;
 }
 
-/* 각 열의 고정 너비 비율 (총합이 100%) */
 .vet-table-row > div {
     flex-basis: 20%;
     text-align: center;
@@ -160,16 +185,6 @@
 
 .vet-status-box {
     flex: 1;
-    padding: 10px 0;
-
-    border-radius: 8px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.4;
-}
-.vet-status-box {
-    flex: 1;
     padding: 10px 4px;
     border-radius: 8px;
     text-align: center;
@@ -177,6 +192,7 @@
     margin: 0 2px;
     min-width: 50px;
 }
+
 .vet-status-divider {
     width: 0.5px;
     height: 80px;
@@ -185,18 +201,19 @@
 }
 
 .vet-status-number {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    color: #111;
+    color: #222222;
     margin-bottom: 4px;
 }
 
 .vet-status-label-1 {
     font-size: 12px;
-    color: #767676;
+    color: #169976;
     word-break: keep-all;
     line-height: 1.3;
     margin-top: 12px;
+    font-weight: 600;
 }
 
 .vet-status-label-2 {
@@ -218,6 +235,7 @@
     color: #f4a340;
     font-weight: bold;
 }
+
 .vet-refresh-box {
     display: flex;
     align-items: center;
@@ -226,15 +244,15 @@
 
 .vet-refresh-text-1 {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.3); /* 30% 투명도 */
+    color: rgba(0, 0, 0, 0.3);
     font-weight: 700;
     margin-top: 3px;
-
     margin-left: 220px;
 }
+
 .vet-refresh-text-2 {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.3); /* 30% 투명도 */
+    color: #222222;
     font-weight: 700;
     margin-top: 3px;
     margin-left: 235px;
@@ -246,10 +264,65 @@
     padding: 0;
     margin-top: 1px;
     cursor: pointer;
+    margin-left: -24px;
 }
 
 .vet-refresh-btn img {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 17px;
     object-fit: contain;
+}
+
+/* ─────────────────────────────── */
+/* 🔽 비대면 진료실 우측 텍스트용 추가 CSS */
+/* ─────────────────────────────── */
+.vet-remote-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.vet-remote-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.vet-remote-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222222;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.vet-remote-time {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222222;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.vet-remote-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.vet-remote-hospital {
+    font-size: 12px;
+    font-weight: 600;
+    color: #222222;
+    margin-right: 16px;
+    margin-top: 6px;
+    line-height: 1;
+}
+
+.vet-remote-doctor {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: -24px;
 }
