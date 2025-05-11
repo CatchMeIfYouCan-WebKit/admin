@@ -1,6 +1,5 @@
-// src/pages/VetMain/VetMain.jsx
-
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import '../Main.css';
@@ -10,6 +9,8 @@ import arrow from '../../../assets/arrow.svg';
 import renew from '../../../assets/refresh.svg';
 
 export default function Main() {
+    const navigate = useNavigate();
+
     return (
         <div className="vet-main-container">
             <header className="vet-header">
@@ -44,10 +45,11 @@ export default function Main() {
                         <div>
                             <div className="vet-title2-bold">환자 접수</div>
                             <div className="vet-title2-desc">
-                                진료시작 3분전 <br></br>내원하지 않았습니다.
+                                진료시작 3분전 <br />
+                                내원하지 않았습니다.
                             </div>
                         </div>
-                        <button className="vet-arrow2">
+                        <button className="vet-arrow2" onClick={() => navigate('/main/reception')}>
                             <img src={arrow} alt="arrow" />
                         </button>
                     </div>

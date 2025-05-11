@@ -1,0 +1,123 @@
+.reception-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 16px; /* 양옆 16px 여백만 */
+    font-family: sans-serif;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.reception-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.reception-header h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.reception-icons span {
+    font-size: 20px;
+    margin-left: 12px;
+}
+
+.reception-date {
+    font-size: 12px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 12px;
+    text-align: left;
+    border: #000000;
+}
+
+.reception-card {
+    width: 100%;
+    max-width: 100%; /* 또는 필요하면 720px까지도 가능 */
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 2px solid #169976;
+    border-radius: 12px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.reception-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.reception-time {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.reception-status-group {
+    display: flex;
+    gap: 4px;
+}
+
+.status-badge {
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: -90px;
+}
+
+.status-badge.scheduled {
+    background-color: #d1f5dd;
+    color: #169976;
+}
+
+.status-badge.no-show {
+    background-color: #fce2e2;
+    color: #e02e2e;
+}
+
+.reception-method {
+    font-size: 12px;
+    color: #333;
+    font-weight: 500;
+}
+
+.reception-info {
+    font-size: 14px;
+    color: #111;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.btn-done {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-done.active {
+    background-color: #111;
+    color: #fff;
+}
+
+.btn-done.inactive {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: default;
+}
+.bell-icon {
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #555;
+    cursor: pointer;
+}

@@ -19,6 +19,8 @@ import FindPassword from '../pages/FindPassword/components/FindPassword';
 
 import Main from '../pages/Main/components/Main';
 
+import Reception from '../pages/Reception/components/Reception';
+
 function App() {
     return (
         <BrowserRouter>
@@ -39,6 +41,9 @@ function App() {
                 <Route path="/findpw" element={<FindPassword />} />
                 <Route path="/successfindpw" element={<SuccessFindPassword />} />
                 <Route path="/failfindpw" element={<FailFindPassword />} />
+
+                {/* 환자 접수 */}
+                <Route path="/main/reception" element={<Reception />} />
             </Routes>
         </BrowserRouter>
     );

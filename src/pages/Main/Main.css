@@ -101,7 +101,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-top: 16px;
+    margin-top: 10px;
 }
 
 .vet-arrow2 {
@@ -293,15 +293,15 @@
     font-weight: 700;
     color: #222222;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .vet-remote-time {
     font-size: 20px;
     font-weight: 600;
     color: #222222;
-    margin-top: 40px;
     text-align: left;
+    margin-top: 22px;
 }
 
 .vet-remote-right {
