@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from '../pages/Landing/components/LandingPage';
 import LoginPage from '../pages/Login/components/LoginPage';
 import Signup from '../pages/Signup/components/Signup';
+import Signup2 from '../pages/Signup/components/Signup2';
+
 import SuccessSignup from '../pages/Signup/components/SuccessSignup';
 
 import FindId from '../pages/FindId/components/FindId';
@@ -29,6 +31,8 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/signup2" element={<Signup2 />} />
+
                 <Route path="/successsignup" element={<SuccessSignup />} />
                 <Route path="/main" element={<Main />} />
 

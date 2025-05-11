@@ -139,3 +139,20 @@
     object-fit: cover;
     border-radius: 8px;
 }
+.signup-body textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* ← 모든 모서리 둥글게 */
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: none;
+    background-color: white;
+    display: block;
+    line-height: 1.4;
+}
+.signup-body textarea::placeholder {
+    font-size: 20px;
+    color: #999;
+}

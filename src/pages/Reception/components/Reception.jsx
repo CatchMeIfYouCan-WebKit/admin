@@ -1,17 +1,24 @@
 import React from 'react';
 import '../Reception.css';
-import { faBell } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 export default function Reception() {
+    const navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(-1); // 이전 페이지로 이동
+    };
+
     return (
         <div className="reception-container">
             <header className="reception-header">
+                <button className="back-button" onClick={goBack}>
+                    <IoIosArrowBack />
+                </button>
                 <h1>환자 접수</h1>
-                <div className="reception-icons">
-                    <FontAwesomeIcon icon={faBell} className="bell-icon" />
-                </div>
             </header>
+            <div className="header-divider" />
 
             <div className="reception-date">2025.04.12 (금)</div>
 
@@ -21,7 +28,8 @@ export default function Reception() {
                     <span className="reception-time">첫 번째 진료 09:00</span>
                     <div className="reception-status-group">
                         <span className="status-badge scheduled">진료예정</span>
-                        <span className="status-badge no-show">노쇼처리</span>
+                        <span className="status-badge scheduled-cancel">진료취소</span>
+                        <span className="status-badge planned">진료예정</span>
                     </div>
                     <span className="reception-method">비대면진료</span>
                 </div>
@@ -33,6 +41,7 @@ export default function Reception() {
                 </div>
 
                 <button className="btn-done active">접수 완료</button>
+                <button className="btn-done cancel">진료 취소</button>
             </div>
 
             {/* 접수 카드 2 */}
@@ -40,7 +49,9 @@ export default function Reception() {
                 <div className="reception-card-header">
                     <span className="reception-time">첫 번째 진료 09:00</span>
                     <div className="reception-status-group">
-                        <span className="status-badge scheduled">진료대기</span>
+                        <span className="status-badge planned">진료예정</span>
+                        <span className="status-badge scheduled-cancel">진료취소</span>
+                        <span className="status-badge scheduled">진료예정</span>
                     </div>
                     <span className="reception-method">비대면진료</span>
                 </div>
