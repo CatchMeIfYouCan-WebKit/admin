@@ -272,6 +272,19 @@
     height: 17px;
     object-fit: contain;
 }
+/* 회전 애니메이션 */
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vet-refresh-btn.rotate img {
+    animation: rotate360 1s ease forwards;
+}
 
 /* ─────────────────────────────── */
 /* 🔽 비대면 진료실 우측 텍스트용 추가 CSS */

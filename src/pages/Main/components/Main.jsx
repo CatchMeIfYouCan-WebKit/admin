@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
@@ -10,6 +10,12 @@ import renew from '../../../assets/refresh.svg';
 
 export default function Main() {
     const navigate = useNavigate();
+    const [isRotating, setIsRotating] = useState(false);
+
+    const handleRotate = () => {
+        setIsRotating(true);
+        setTimeout(() => setIsRotating(false), 500); // 0.5초 뒤 애니메이션 제거
+    };
 
     return (
         <div className="vet-main-container">
@@ -99,7 +105,7 @@ export default function Main() {
                     <div className="vet-title-row">
                         <span>진료현황</span>
                         <span className="vet-refresh-text-2">최근 15:32</span>
-                        <button className="vet-refresh-btn">
+                        <button className={`vet-refresh-btn ${isRotating ? 'rotate' : ''}`} onClick={handleRotate}>
                             <img src={renew} alt="새로고침" />
                         </button>
                     </div>

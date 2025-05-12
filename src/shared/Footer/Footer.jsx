@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import Home from '../../assets/Home.svg';
 import HomeActive from '../../assets/HomeSelect.svg';
 import Chat from '../../assets/Chat.svg';
-import PatientsActive from '../../assets/ChatSelect.svg';
+import PatientsActive from '../../assets/PatientsSelect.svg';
 import './Footer.css';
 import profile from '../../assets/myprofile2.svg';
 import profileActive from '../../assets/myprofile2Select.svg';
@@ -12,9 +12,9 @@ export default function Footer() {
     const currentPath = location.pathname;
 
     const navItems = [
-        { path: '/patients', label: '환자관리', icon: Chat, activeIcon: PatientsActive },
+        { path: '/main/patients', label: '환자관리', icon: Chat, activeIcon: PatientsActive },
         { path: '/main', label: '홈', icon: Home, activeIcon: HomeActive },
-        { path: '/mypage', label: '마이페이지', icon: profile, activeIcon: profileActive },
+        { path: '/main/mypage', label: '마이페이지', icon: profile, activeIcon: profileActive },
     ];
 
     return (

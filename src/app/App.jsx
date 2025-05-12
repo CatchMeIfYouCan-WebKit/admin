@@ -22,7 +22,7 @@ import FindPassword from '../pages/FindPassword/components/FindPassword';
 import Main from '../pages/Main/components/Main';
 
 import Reception from '../pages/Reception/components/Reception';
-
+import Patients from '../pages/Patients/components/Patients';
 function App() {
     return (
         <BrowserRouter>
@@ -48,6 +48,9 @@ function App() {
 
                 {/* 환자 접수 */}
                 <Route path="/main/reception" element={<Reception />} />
+
+                {/* 환자 관리 */}
+                <Route path="/main/patients" element={<Patients />} />
             </Routes>
         </BrowserRouter>
     );

@@ -1,0 +1,88 @@
+/* src/pages/Patients/components/Patients.css */
+.patients-container {
+    font-family: sans-serif;
+    background-color: #fff;
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0; /* 좌우 공백 제거 */
+}
+
+/* 헤더 */
+.patients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px 8px 20px;
+}
+
+/* 알림, 유저 아이콘 */
+.header-icons {
+    display: flex;
+    gap: 16px;
+}
+
+/* 검색창 */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #c4e3d3;
+    border-radius: 30px;
+    padding: 10px 16px;
+    margin: 12px 20px 20px 20px;
+    background-color: #fff;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    background: transparent;
+}
+
+/* 환자 리스트 */
+.patient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 20px;
+}
+
+/* 환자 카드 */
+.patient-card {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 0;
+    position: relative;
+}
+
+/* 라벨 + 값 줄 */
+.info-row {
+    display: flex;
+    font-size: 15px;
+    margin: 4px 0;
+    color: #333;
+}
+
+/* 라벨 */
+.label {
+    width: 80px;
+    color: #999;
+    font-weight: 500;
+}
+
+/* 상세보기 버튼 */
+.detail-button {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}

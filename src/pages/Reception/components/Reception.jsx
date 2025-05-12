@@ -27,8 +27,6 @@ export default function Reception() {
                 <div className="reception-card-header">
                     <span className="reception-time">첫 번째 진료 09:00</span>
                     <div className="reception-status-group">
-                        <span className="status-badge scheduled">진료예정</span>
-                        <span className="status-badge scheduled-cancel">진료취소</span>
                         <span className="status-badge planned">진료예정</span>
                     </div>
                     <span className="reception-method">비대면진료</span>
@@ -40,7 +38,7 @@ export default function Reception() {
                     <div>방문목적: 백신접종</div>
                 </div>
 
-                <button className="btn-done active">접수 완료</button>
+                <button className="btn-done active">접수</button>
                 <button className="btn-done cancel">진료 취소</button>
             </div>
 
@@ -49,9 +47,26 @@ export default function Reception() {
                 <div className="reception-card-header">
                     <span className="reception-time">첫 번째 진료 09:00</span>
                     <div className="reception-status-group">
-                        <span className="status-badge planned">진료예정</span>
+                        <span className="status-badge scheduled">진료대기</span>
+                    </div>
+                    <span className="reception-method">비대면진료</span>
+                </div>
+
+                <div className="reception-info">
+                    <div>보호자명: 김하루</div>
+                    <div>반려동물: 댕댕구</div>
+                    <div>방문목적: 백신접종</div>
+                </div>
+
+                <button className="btn-done inactive">접수 완료</button>
+            </div>
+
+            {/* 접수 카드 3 */}
+            <div className="reception-card">
+                <div className="reception-card-header">
+                    <span className="reception-time">세번째 진료 09:00</span>
+                    <div className="reception-status-group">
                         <span className="status-badge scheduled-cancel">진료취소</span>
-                        <span className="status-badge scheduled">진료예정</span>
                     </div>
                     <span className="reception-method">비대면진료</span>
                 </div>
