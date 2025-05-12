@@ -23,6 +23,8 @@ import Main from '../pages/Main/components/Main';
 
 import Reception from '../pages/Reception/components/Reception';
 import Patients from '../pages/Patients/components/Patients';
+import PatientsDetail from '../pages/Patients/components/PatientsDetail';
+
 function App() {
     return (
         <BrowserRouter>
@@ -51,6 +53,7 @@ function App() {
 
                 {/* 환자 관리 */}
                 <Route path="/main/patients" element={<Patients />} />
+                <Route path="/main/patients/detail" element={<PatientsDetail />} />
             </Routes>
         </BrowserRouter>
     );

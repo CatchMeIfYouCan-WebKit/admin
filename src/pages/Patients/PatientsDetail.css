@@ -1,0 +1,64 @@
+/* src/pages/Patients/PatientsDetail.css */
+.patients-detail-container {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-family: sans-serif;
+}
+
+.patients-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.profile-section,
+.chart-section {
+    margin-top: 24px;
+}
+
+.patient-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+.label {
+    color: gray;
+}
+
+.file-upload {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #aaa;
+    padding: 12px;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.file-upload input {
+    display: none;
+}
+
+.upload-icon {
+    font-size: 18px;
+    color: gray;
+}

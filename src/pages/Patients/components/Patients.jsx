@@ -4,8 +4,11 @@ import Footer from '../../../shared/Footer/Footer';
 import { faBell, faUser } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FiSearch } from 'react-icons/fi'; // 이거도 누락되어 있었음
+import { useNavigate } from 'react-router-dom';
 
 export default function Patients() {
+    const navigate = useNavigate();
+
     const allPatients = Array(6).fill({
         name: '이명재',
         guardian: '이명재',
@@ -56,7 +59,9 @@ export default function Patients() {
                                 <span className="label">최근진료일</span>
                                 <span>{p.recentDate}</span>
                             </div>
-                            <button className="detail-button">상세보기</button>
+                            <button className="detail-button" onClick={() => navigate('/main/patients/detail')}>
+                                상세보기
+                            </button>
                         </div>
                     ))
                 ) : (
