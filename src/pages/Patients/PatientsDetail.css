@@ -1,10 +1,8 @@
 /* src/pages/Patients/PatientsDetail.css */
 .patients-detail-container {
-    width: 100vw;
-    min-height: 100vh;
-    padding: 0 20px;
-    box-sizing: border-box;
+    padding: 16px;
     background-color: #fff;
+    min-height: 100vh;
     font-family: sans-serif;
 }
 

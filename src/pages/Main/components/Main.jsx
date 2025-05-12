@@ -64,7 +64,13 @@ export default function Main() {
                 <section className="vet-card">
                     <div className="vet-title-row">
                         <span>환자 예약 및 진료</span>
-                        <span className="vet-small-text">상세보기</span>
+                        <span
+                            className="vet-small-text"
+                            onClick={() => navigate('/main/patientvisit')}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            상세보기
+                        </span>
                     </div>
                     <div className="vet-subtext">금일 25.05.08 기준</div>
                     <div className="vet-table">

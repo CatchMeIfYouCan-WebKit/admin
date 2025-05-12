@@ -20,6 +20,7 @@ import FailFindPassword from '../pages/FindPassword/components/FailFindPassword'
 import FindPassword from '../pages/FindPassword/components/FindPassword';
 
 import Main from '../pages/Main/components/Main';
+import PatientVisit from '../pages/PatientVisit/components/PatientVisit'; // 페이지 임포트
 
 import Reception from '../pages/Reception/components/Reception';
 import Patients from '../pages/Patients/components/Patients';
@@ -54,6 +55,7 @@ function App() {
                 {/* 환자 관리 */}
                 <Route path="/main/patients" element={<Patients />} />
                 <Route path="/main/patients/detail" element={<PatientsDetail />} />
+                <Route path="/main/patientvisit" element={<PatientVisit />} />
             </Routes>
         </BrowserRouter>
     );

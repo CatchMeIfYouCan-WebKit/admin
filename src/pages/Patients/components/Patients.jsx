@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../Patients.css';
 import Footer from '../../../shared/Footer/Footer';
-import { faBell, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FiSearch } from 'react-icons/fi'; // 이거도 누락되어 있었음
 import { useNavigate } from 'react-router-dom';
+import Search from '../../../assets/search.svg';
 
 export default function Patients() {
     const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function Patients() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
-                <FiSearch size={20} />
+                <img src={Search} alt="search" className="search-icon" />
             </div>
 
             <div className="patient-list">
@@ -44,20 +44,20 @@ export default function Patients() {
                     filteredPatients.map((p, idx) => (
                         <div className="patient-card" key={idx}>
                             <div className="info-row">
-                                <span className="label">환자명</span>
-                                <span>{p.name}</span>
+                                <div className="label">환자명</div>
+                                <div className="patient-namelist">{p.name}</div>
                             </div>
                             <div className="info-row">
-                                <span className="label">보호자명</span>
-                                <span>{p.guardian}</span>
+                                <div className="label">보호자명</div>
+                                <div className="patient-namelist">{p.guardian}</div>
                             </div>
                             <div className="info-row">
-                                <span className="label">방문 횟수</span>
-                                <span>{p.visits}회</span>
+                                <div className="label">방문 횟수</div>
+                                <div className="patient-namelist">{p.visits}회</div>
                             </div>
                             <div className="info-row">
-                                <span className="label">최근진료일</span>
-                                <span>{p.recentDate}</span>
+                                <div className="label">최근진료일</div>
+                                <div className="patient-namelist">{p.recentDate}</div>
                             </div>
                             <button className="detail-button" onClick={() => navigate('/main/patients/detail')}>
                                 상세보기

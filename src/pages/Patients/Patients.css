@@ -5,7 +5,8 @@
     width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 0; /* 좌우 공백 제거 */
+    padding-bottom: 110px; /* Footer 높이만큼 공간 확보 */
+    overflow-y: auto;
 }
 
 /* 헤더 */
@@ -15,11 +16,27 @@
     align-items: center;
     padding: 16px 20px 8px 20px;
 }
+.patients-header h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 12px; /* 아이콘이 있을 경우 간격 */
+    margin-top: 10px;
+}
 
 /* 알림, 유저 아이콘 */
 .header-icons {
     display: flex;
     gap: 16px;
+}
+/* faBell 아이콘 정렬 및 스타일 */
+.header-icons .fa-bell,
+.header-icons svg {
+    font-size: 25px;
+    color: #555;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 }
 
 /* 검색창 */
@@ -52,25 +69,49 @@
 
 /* 환자 카드 */
 .patient-card {
-    background-color: #fff;
-    border-bottom: 1px solid #f0f0f0;
-    padding: 16px 0;
     position: relative;
+    padding: 8px 0;
+    border: none;
+    border-top: none;
+}
+
+.patient-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20px; /* patient-list padding 만큼 보정 */
+    width: calc(100% + 40px); /* 좌우 20px씩 확장 */
+    height: 1px;
+    background-color: #f0f0f0;
 }
 
 /* 라벨 + 값 줄 */
 .info-row {
     display: flex;
+    align-items: center;
+    gap: 8px; /* 간격 필요시 */
     font-size: 15px;
-    margin: 4px 0;
-    color: #333;
+    margin: 6px 0;
+}
+.info-row:last-of-type {
+    margin-bottom: -18px;
 }
 
 /* 라벨 */
 .label {
-    width: 80px;
-    color: #999;
+    color: #d9d9d9 !important;
     font-weight: 500;
+    text-align: left;
+    white-space: nowrap; /* ✅ 줄바꿈 금지 */
+    min-width: 90px; /* 고정 너비로 세로 정렬 유지 */
+}
+
+.patient-namelist {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left !important;
+    display: block; /* 💡 핵심! 블록요소로 만들어서 전체 너비 확보 */
+    width: 100%; /* 필요 시 명시 */
 }
 
 /* 상세보기 버튼 */
@@ -85,4 +126,11 @@
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
+}
+
+.search-bar input::placeholder {
+    color: #dbdbdb; /* 연한 초록빛 (예시) */
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 1; /* iOS나 일부 브라우저에서 흐리게 나오는 것 방지 */
 }
