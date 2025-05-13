@@ -1,17 +1,21 @@
-/* src/pages/Patients/PatientsDetail.css */
+/* 전체 컨테이너 */
 .patients-detail-container {
-    padding: 16px;
+    padding: 16px 20px; /* 좌우 여백 고정 */
     background-color: #fff;
     min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
     font-family: sans-serif;
 }
 
+/* 헤더 */
 .patients-detail-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 16px;
+    padding: 8px 20px 0px 20px;
     border-bottom: 1px solid #ddd;
+    background-color: #fff;
 }
 
 .back-button {
@@ -19,30 +23,54 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
+.detail-title {
+    flex: 1;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 12px; /* 아이콘이 있을 경우 간격 */
+    margin-top: -18px;
+}
+
+/* 섹션 간 여백 */
 .profile-section,
 .chart-section {
     margin-top: 24px;
 }
-
+.profile-section h3 {
+    text-align: left;
+}
+/* 이름 텍스트 */
 .patient-name {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 12px;
+    text-align: left;
 }
 
+/* 정보 한 줄 */
 .info-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 6px 0;
     font-size: 15px;
 }
 
+/* 왼쪽 라벨 */
 .label {
     color: gray;
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: left;
 }
 
+/* 파일 업로드 */
 .file-upload {
     display: flex;
     justify-content: space-between;
@@ -52,11 +80,7 @@
     align-items: center;
 }
 
+/* 업로드 인풋 숨김 */
 .file-upload input {
     display: none;
-}
-
-.upload-icon {
-    font-size: 18px;
-    color: gray;
 }

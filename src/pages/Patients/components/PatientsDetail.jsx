@@ -2,8 +2,6 @@
 import React from 'react';
 import '../PatientsDetail.css';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { IoIosArrowBack } from 'react-icons/io';
 
 export default function PatientsDetail() {
@@ -15,36 +13,35 @@ export default function PatientsDetail() {
                 <button className="back-button" onClick={() => navigate(-1)}>
                     <IoIosArrowBack size={24} />
                 </button>
-                <h2>환자 상세 정보</h2>
-                <FontAwesomeIcon icon={faUser} size="lg" />
+                <h2 className="detail-title">환자 상세 정보</h2>
             </header>
 
             <section className="profile-section">
                 <h3>프로필 정보</h3>
                 <p className="patient-name">이수완</p>
                 <div className="info-row">
-                    <span className="label">강아지 품종</span>
-                    <span>비숑</span>
+                    <div className="label">강아지 품종</div>
+                    <div>비숑</div>
                 </div>
                 <div className="info-row">
-                    <span className="label">성별</span>
-                    <span>남아</span>
+                    <div className="label">성별</div>
+                    <div>남아</div>
                 </div>
                 <div className="info-row">
-                    <span className="label">중성화 여부</span>
-                    <span>O</span>
+                    <div className="label">중성화 여부</div>
+                    <div>O</div>
                 </div>
                 <div className="info-row">
-                    <span className="label">생년월일</span>
-                    <span>2025-01-24</span>
+                    <div className="label">생년월일</div>
+                    <div>2025-01-24</div>
                 </div>
                 <div className="info-row">
-                    <span className="label">몸무게</span>
-                    <span>4.29kg</span>
+                    <div className="label">몸무게</div>
+                    <div>4.29kg</div>
                 </div>
                 <div className="info-row">
-                    <span className="label">동물인증번호</span>
-                    <span>KR-000-000-00000</span>
+                    <div className="label">동물인증번호</div>
+                    <div>KR-000-000-00000</div>
                 </div>
                 <div className="info-row">
                     <span className="label">대면진료</span>

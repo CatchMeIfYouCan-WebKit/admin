@@ -33,9 +33,18 @@ export default function Reception() {
                 </div>
 
                 <div className="reception-info">
-                    <div>보호자명: 김하루</div>
-                    <div>반려동물: 댕댕구</div>
-                    <div>방문목적: 백신접종</div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">보호자명</span>
+                        <span className="reception-info-value">김하루</span>
+                    </div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">반려동물</span>
+                        <span className="reception-info-value">댕댕구</span>
+                    </div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">방문목적</span>
+                        <span className="reception-info-value">백신접종</span>
+                    </div>
                 </div>
 
                 <button className="btn-done active">접수</button>
@@ -53,9 +62,18 @@ export default function Reception() {
                 </div>
 
                 <div className="reception-info">
-                    <div>보호자명: 김하루</div>
-                    <div>반려동물: 댕댕구</div>
-                    <div>방문목적: 백신접종</div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">보호자명</span>
+                        <span className="reception-info-value">김하루</span>
+                    </div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">반려동물</span>
+                        <span className="reception-info-value">댕댕구</span>
+                    </div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">방문목적</span>
+                        <span className="reception-info-value">백신접종</span>
+                    </div>
                 </div>
 
                 <button className="btn-done inactive">접수 완료</button>
@@ -72,9 +90,18 @@ export default function Reception() {
                 </div>
 
                 <div className="reception-info">
-                    <div>보호자명: 김하루</div>
-                    <div>반려동물: 댕댕구</div>
-                    <div>방문목적: 백신접종</div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">보호자명</span>
+                        <span className="reception-info-value">김하루</span>
+                    </div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">반려동물</span>
+                        <span className="reception-info-value">댕댕구</span>
+                    </div>
+                    <div className="reception-info-item">
+                        <span className="reception-info-label">방문목적</span>
+                        <span className="reception-info-value">백신접종</span>
+                    </div>
                 </div>
 
                 <button className="btn-done inactive">접수 완료</button>
