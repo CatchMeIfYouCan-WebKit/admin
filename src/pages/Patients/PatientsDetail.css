@@ -1,5 +1,5 @@
 /* 전체 컨테이너 */
-.patients-detail-container {
+.patients-detail-container2 {
     padding: 16px 20px; /* 좌우 여백 고정 */
     background-color: #fff;
     min-height: 100vh;
@@ -9,7 +9,7 @@
 }
 
 /* 헤더 */
-.patients-detail-header {
+.patients-detail-header2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,7 +24,7 @@
     box-sizing: border-box;
 }
 
-.back-button {
+.back-button4 {
     background: none;
     border: none;
     font-size: 24px;
@@ -33,9 +33,10 @@
     display: flex;
     align-items: center;
     margin-left: -16px !important;
+    margin-bottom: 24px;
 }
 
-.detail-title {
+.detail-title2 {
     flex: 1;
     text-align: left;
     font-size: 20px;
@@ -45,11 +46,11 @@
 }
 
 /* 섹션 간 여백 */
-.profile-section,
-.chart-section {
+.profile-section2,
+.chart-section2 {
     margin-top: 24px;
 }
-.profile-section h3 {
+.profile-section2 h3 {
     text-align: left;
 }
 /* 이름 텍스트 */
@@ -62,7 +63,7 @@
 }
 
 /* 정보 한 줄 */
-.info-row {
+.info-row3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,7 +92,7 @@
 }
 
 /* 파일 업로드 */
-.file-upload {
+.file-upload2 {
     display: flex;
     justify-content: space-between;
     border: 1px solid #808080;
@@ -101,11 +102,11 @@
 }
 
 /* 업로드 인풋 숨김 */
-.file-upload input {
+.file-upload2 input {
     display: none;
 }
 
-.chart-section h3 {
+.chart-section2 h3 {
     font-size: 24px;
     font-weight: bold;
     color: #000000 !important;

@@ -7,6 +7,7 @@ import PatientsActive from '../../assets/PatientsSelect.svg';
 import './Footer.css';
 import profile from '../../assets/myprofile2.svg';
 import profileActive from '../../assets/myprofile2Select.svg';
+
 export default function Footer() {
     const location = useLocation();
     const currentPath = location.pathname;
@@ -14,7 +15,7 @@ export default function Footer() {
     const navItems = [
         { path: '/main/patients', label: '환자관리', icon: Chat, activeIcon: PatientsActive },
         { path: '/main', label: '홈', icon: Home, activeIcon: HomeActive },
-        { path: '/main/mypage', label: '마이페이지', icon: profile, activeIcon: profileActive },
+        { path: '/mypage', label: '마이페이지', icon: profile, activeIcon: profileActive },
     ];
 
     return (

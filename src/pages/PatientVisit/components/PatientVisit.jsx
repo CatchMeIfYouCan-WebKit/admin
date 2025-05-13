@@ -1,4 +1,3 @@
-// src/pages/PatientVist/components/PatientVisit.jsx
 import React, { useState, useEffect } from 'react';
 import '../PatientVisit.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,6 +5,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import arrow from '../../../assets/downarrow.svg';
+
 export default function PatientVisit() {
     const [tab, setTab] = useState('reservation');
     const [showDateList, setShowDateList] = useState(false);
@@ -14,7 +14,7 @@ export default function PatientVisit() {
 
     const navigate = useNavigate();
     const goBack = () => {
-        navigate(-1); // 뒤로 가기
+        navigate(-1);
     };
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function PatientVisit() {
         }
 
         setDateOptions(options);
-        setSelectedDate(options[0]); // 오늘 날짜로 설정
+        setSelectedDate(options[0]);
     }, []);
 
     const toggleDateList = () => {
@@ -46,6 +46,7 @@ export default function PatientVisit() {
         setSelectedDate(date);
         setShowDateList(false);
     };
+
     return (
         <div className="visit-container">
             <header className="visit-header">
@@ -53,7 +54,6 @@ export default function PatientVisit() {
                     <IoIosArrowBack />
                 </button>
                 <h1 className="visit-title2">환자 예약 및 진료</h1>
-
                 <FontAwesomeIcon icon={faBell} className="header-bell2" />
             </header>
 
@@ -69,13 +69,14 @@ export default function PatientVisit() {
             <div className="visit-content">
                 {tab === 'reservation' ? (
                     <div className="reservation-tab">
-                        {/* 예약관리 기존 내용 유지 */}
+                        {/* 전체선택 */}
                         <div className="reservation-header">
                             <label className="checkbox-label">
                                 <input type="checkbox" /> 전체선택
                             </label>
                         </div>
 
+                        {/* 날짜 그룹 1 */}
                         <div className="reservation-date-with-checkbox">
                             <label className="reservation-date-checkbox">
                                 <input type="checkbox" />
@@ -83,6 +84,7 @@ export default function PatientVisit() {
                             <span className="reservation-date-text">2025.05.09</span>
                         </div>
 
+                        {/* 예약 카드 1 */}
                         <div className="reservation-card">
                             <label>
                                 <input type="checkbox" />
@@ -100,15 +102,18 @@ export default function PatientVisit() {
                                     <span className="info-label">진료 일시</span>
                                     <span className="info-value">10:00</span>
                                 </div>
-                                <div className="info-row with-action">
+                                <div className="info-row">
                                     <span className="info-label">진료 방식</span>
                                     <span className="info-value">대면</span>
-                                    <span className="reservation-action-text">예약취소</span>
                                 </div>
                             </div>
-                            <div className="reservation-status green">수락대기</div>
+                            <div className="status-container">
+                                <div className="reservation-status green">수락대기</div>
+                                <span className="reservation-action-text">예약취소</span>
+                            </div>
                         </div>
 
+                        {/* 예약 카드 2 */}
                         <div className="reservation-card">
                             <label>
                                 <input type="checkbox" />
@@ -126,24 +131,27 @@ export default function PatientVisit() {
                                     <span className="info-label">진료 일시</span>
                                     <span className="info-value">10:00</span>
                                 </div>
-                                <div className="info-row with-action">
+                                <div className="info-row">
                                     <span className="info-label">진료 방식</span>
                                     <span className="info-value">대면</span>
-                                    <span className="reservation-action-text">예약취소</span>
                                 </div>
                             </div>
-                            <div className="reservation-status dark">예약완료</div>
+                            <div className="status-container">
+                                <div className="reservation-status dark">예약완료</div>
+                            </div>
                         </div>
 
+                        {/* 날짜 그룹 2 */}
                         <div className="reservation-date-with-checkbox">
-                            <label className="checkbox-label">
+                            <label className="reservation-date-checkbox">
                                 <input type="checkbox" />
                             </label>
                             <span className="reservation-date-text">2025.05.10</span>
                         </div>
 
+                        {/* 예약 카드 3 */}
                         <div className="reservation-card">
-                            <label className="checkbox-label">
+                            <label>
                                 <input type="checkbox" />
                             </label>
                             <div className="reservation-info">
@@ -159,29 +167,31 @@ export default function PatientVisit() {
                                     <span className="info-label">진료 일시</span>
                                     <span className="info-value">10:00</span>
                                 </div>
-                                <div className="info-row with-action">
+                                <div className="info-row">
                                     <span className="info-label">진료 방식</span>
                                     <span className="info-value">대면</span>
-                                    <span className="reservation-action-text">취소사유</span>
                                 </div>
                             </div>
-                            <div className="reservation-status red">예약취소</div>
+                            <div className="status-container">
+                                <div className="reservation-status red">예약취소</div>
+                                <span className="reservation-action-text">취소사유</span>
+                            </div>
                         </div>
 
                         <button className="submit-btn">예약수락</button>
                     </div>
                 ) : (
+                    /* =============== 진료목록 =============== */
                     <div className="records-tab">
                         <div className="date-selector-wrapper">
                             <div className="reception-date2" onClick={toggleDateList}>
                                 {selectedDate}
                                 <img src={arrow} alt="화살표" className="down-arrow-icon" />
                             </div>
-
                             {showDateList && (
                                 <ul className="date-dropdown">
-                                    {dateOptions.map((date, index) => (
-                                        <li key={index} onClick={() => handleDateSelect(date)}>
+                                    {dateOptions.map((date, idx) => (
+                                        <li key={idx} onClick={() => handleDateSelect(date)}>
                                             {date}
                                         </li>
                                     ))}
@@ -189,7 +199,7 @@ export default function PatientVisit() {
                             )}
                         </div>
 
-                        {/* 진료 카드 1 */}
+                        {/* 진료 카드 예시들 (원본 그대로) */}
                         <div className="reception-card">
                             <div className="reception-card-header">
                                 <span className="reception-time">첫 번째 진료 09:00</span>
@@ -217,7 +227,7 @@ export default function PatientVisit() {
                             </button>
                         </div>
 
-                        {/* 진료 카드 2 */}
+                        {/* 나머지 진료 카드들... */}
                         <div className="reception-card">
                             <div className="reception-card-header">
                                 <span className="reception-time">두 번째 진료 10:00</span>
@@ -244,7 +254,6 @@ export default function PatientVisit() {
                             <button className="btn-done inactive">차트 작성완료</button>
                         </div>
 
-                        {/* 진료 카드 3 */}
                         <div className="reception-card">
                             <div className="reception-card-header">
                                 <span className="reception-time">세 번째 진료 11:30</span>
@@ -271,7 +280,6 @@ export default function PatientVisit() {
                             <button className="btn-done inactive">차트 작성완료</button>
                         </div>
 
-                        {/* 진료 카드 4 */}
                         <div className="reception-card">
                             <div className="reception-card-header">
                                 <span className="reception-time">네 번째 진료 11:30</span>

@@ -43,19 +43,19 @@ export default function Patients() {
                 {filteredPatients.length > 0 ? (
                     filteredPatients.map((p, idx) => (
                         <div className="patient-card" key={idx}>
-                            <div className="info-row">
+                            <div className="info-row2">
                                 <div className="label">환자명</div>
                                 <div className="patient-namelist">{p.name}</div>
                             </div>
-                            <div className="info-row">
+                            <div className="info-row2">
                                 <div className="label">보호자명</div>
                                 <div className="patient-namelist">{p.guardian}</div>
                             </div>
-                            <div className="info-row">
+                            <div className="info-row2">
                                 <div className="label">방문 횟수</div>
                                 <div className="patient-namelist">{p.visits}회</div>
                             </div>
-                            <div className="info-row">
+                            <div className="info-row2">
                                 <div className="label">최근진료일</div>
                                 <div className="patient-namelist">{p.recentDate}</div>
                             </div>

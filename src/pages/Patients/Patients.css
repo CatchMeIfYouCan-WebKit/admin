@@ -86,7 +86,7 @@
 }
 
 /* 라벨 + 값 줄 */
-.info-row {
+.info-row2 {
     display: flex;
     align-items: center;
     gap: 8px; /* 간격 필요시 */

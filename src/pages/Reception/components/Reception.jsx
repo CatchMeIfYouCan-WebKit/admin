@@ -13,7 +13,7 @@ export default function Reception() {
     return (
         <div className="reception-container">
             <header className="reception-header">
-                <button className="back-button" onClick={goBack}>
+                <button className="back-button6" onClick={goBack}>
                     <IoIosArrowBack />
                 </button>
                 <h1>환자 접수</h1>

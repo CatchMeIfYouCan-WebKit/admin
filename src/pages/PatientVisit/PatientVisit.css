@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-/* ✅ 헤더 (3단 구성) */
+/* 헤더 (3단 구성) */
 .visit-header {
     display: flex;
     align-items: center;
@@ -46,6 +46,7 @@
     margin-right: 8px;
 }
 
+/* 탭 */
 .visit-tabs {
     display: flex;
     justify-content: space-around;
@@ -69,33 +70,56 @@
     color: #000;
 }
 
+/* 컨텐츠 전체 패딩 */
 .visit-content {
     padding: 0 20px 80px 20px;
 }
 
+/* ── 예약관리 ── */
 .reservation-header {
     margin: 10px 0;
     font-size: 12px;
     text-align: left;
     font-weight: 500;
-    justify-content: flex-start; /* ✅ 왼쪽 정렬 */
-    margin-left: 0px !important;
-
     margin-left: 5px;
 }
 
-.reservation-date {
+.reservation-date-with-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin: 16px 0 8px;
     font-weight: 600;
     font-size: 14px;
     text-align: left;
 }
 
+input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    accent-color: #169976;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: -6px;
+}
+
+.reservation-date-text {
+    color: #222;
+}
+
 .reservation-card {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-
     padding: 12px;
     border-radius: 10px;
     margin-bottom: 12px;
@@ -110,13 +134,19 @@
 }
 
 .reservation-info .info-value {
-    width: 90px; /* ✅ 고정 너비: 모든 항목이 이 기준으로 정렬됨 */
+    width: 90px;
     font-size: 12px;
-    font-weight: 500;
-
-    color: #000000;
     font-weight: normal;
-    text-align: left !important;
+    color: #000;
+    text-align: left;
+}
+
+/* 1) 모든 info-row를 공통 flex 정렬 */
+.reservation-info .info-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
 }
 
 .reservation-status {
@@ -137,10 +167,20 @@
     background-color: #e64942;
 }
 
-.reservation-action {
-    font-size: 13px;
+/* 2) 상태 뱃지 아래에 액션 텍스트 배치 */
+.status-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ← 중앙 정렬 */
+    margin-left: 8px;
+}
+
+.reservation-action-text {
+    font-size: 12px;
     color: #888;
+    border-bottom: 1px solid #ccc;
     margin-top: 4px;
+    cursor: pointer;
 }
 
 .submit-btn {
@@ -155,184 +195,26 @@
     margin-top: 16px;
 }
 
-.records-date {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 16px 0;
-}
-
-.record-box {
-    border: 1.5px solid #44b381;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 16px;
-}
-
-.record-time {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-
-.time-label {
-    flex-shrink: 0;
-}
-
-.tag-group {
-    display: flex;
-    gap: 6px;
-    min-width: 120px;
-    justify-content: flex-start;
-}
-
-.record-type {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 6px;
-}
-
-.tag {
-    display: inline-block;
-    font-size: 12px;
-    padding: 3px 8px;
-    margin-left: 6px;
-    border-radius: 10px;
-    background-color: #ddd;
-    color: #333;
-}
-
-.tag.green {
-    background-color: #3cc576;
-    color: #fff;
-}
-.tag.dark {
-    background-color: #222;
-    color: #fff;
-}
-.tag.red {
-    background-color: #e64942;
-    color: #fff;
-}
-.tag.gray {
-    background-color: #aaa;
-    color: #fff;
-}
-
-.record-detail {
-    text-align: right;
-    font-size: 13px;
-    color: #666;
-    margin: 8px 0;
-}
-
-.chart-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 15px;
-    border: none;
-    background-color: #111;
-    color: #fff;
-    cursor: pointer;
-}
-
-.chart-btn.disabled {
-    background-color: #ddd;
-    color: #aaa;
-    cursor: not-allowed;
-}
-
-.status {
-    padding: 2px 8px;
-    font-size: 12px;
-    border-radius: 8px;
-    font-weight: 600;
-    white-space: nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 24px;
-}
-
-.status.in-progress {
-    background-color: #1dcd9f;
-    color: #ffffff;
-}
-
-.status.completed {
-    background-color: #222222;
-    color: #ffffff;
-}
-
-.status.cancelled {
-    background-color: #d91111;
-    color: #ffffff;
-}
-
-.status.started {
-    background-color: #ffffff;
-    color: #222222;
-    border: 1px solid #1dcd9f;
-}
-
-.status.waiting {
-    background-color: #169976;
-    color: #ffffff;
-}
-
-.status.scheduled {
-    background-color: white;
-    color: rgba(34, 34, 34, 0.3);
-    border: 1px solid rgba(34, 34, 34, 0.3);
-}
-
-.detail-link {
-    font-size: 10px;
-    color: #111;
-    font-weight: 500;
-    border-bottom: 1px solid #169976;
-    margin-left: auto;
-    cursor: pointer;
-}
-.reception-date2 {
-    margin-top: 12px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #222222;
-    margin-bottom: 12px;
-    text-align: left;
-}
-
-.reception-info-label2 {
-    color: rgba(34, 34, 34, 0.3); /* 0.3은 30% 불투명도 */
-    min-width: 90px; /* 라벨 길이 고정 */
-    display: flex;
-    gap: 8px;
-    font-size: 12px;
-    line-height: 1.4;
-}
-
-.reception-info-value2 {
-    color: #111; /* 진한 글씨 */
-    margin-left: -10px;
-    min-width: 90px; /* 라벨 길이 고정 */
-    margin-left: -40px;
-    font-size: 12px;
-    line-height: 1.4;
-    text-align: left;
-}
-.down-arrow-icon {
-    margin-left: 4px;
-    width: 12px;
-    height: 12px;
-}
+/* ── 진료목록 ── */
 .date-selector-wrapper {
     position: relative;
     margin-bottom: 12px;
     text-align: left;
+}
+
+.reception-date2 {
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.down-arrow-icon {
+    margin-left: 4px;
+    width: 12px;
+    height: 12px;
 }
 
 .date-dropdown {
@@ -354,68 +236,130 @@
     cursor: pointer;
     white-space: nowrap;
 }
-
 .date-dropdown li:hover {
     background-color: #f0f0f0;
 }
-.info-row.with-action {
+
+.reception-card {
+    border: 1.5px solid #44b381;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.reception-card-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 6px; /* 간격만 조절 */
-}
-
-.info-row.with-action {
-    display: flex;
     align-items: center;
-    gap: 6px; /* 간격만 조절 */
+    margin-bottom: 6px;
 }
 
-.info-row.with-action .info-label,
-.info-row.with-action .info-value {
-    flex: none;
+.reception-time {
+    font-size: 15px;
+    font-weight: bold;
 }
 
-.reservation-action-text-wrapper {
-    margin-top: 6px;
-    text-align: right;
-}
-
-.reservation-action-text {
-    font-size: 12px;
-    color: #888;
-    font-weight: 400;
-    border-bottom: 1px solid #ccc;
-    white-space: nowrap;
-    cursor: pointer;
-}
-.reservation-date-with-checkbox {
+.reception-status-group {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 16px 0 8px;
-    font-weight: 600;
+    gap: 6px;
+    min-width: 120px;
+    justify-content: flex-start;
+}
+
+.reception-method {
     font-size: 14px;
+    color: #555;
+}
+
+.reception-info {
+    margin: 12px 0;
+}
+
+.reception-info-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.reception-info-label2 {
+    color: rgba(34, 34, 34, 0.3);
+    min-width: 90px;
+    font-size: 12px;
+    line-height: 1.4;
     text-align: left;
 }
 
-input[type='checkbox'] {
-    width: 15px;
-    height: 15px;
-    accent-color: #169976;
-    vertical-align: middle;
+.reception-info-value2 {
+    color: #111;
+    min-width: 90px;
+    margin-left: -30px;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-done {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    border: none;
+    background-color: #111;
+    color: #fff;
     cursor: pointer;
 }
-
-.reservation-date-text {
-    color: #222;
+.btn-done.inactive {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
 }
 
-.checkbox-label {
+/* 공통 status 태그 */
+.status {
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
     display: flex;
-    align-items: center; /* 수직 중앙 정렬 */
-    gap: 6px; /* 체크박스와 텍스트 사이 간격 */
-    font-size: 14px; /* 텍스트 크기 */
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 24px;
+}
+
+.status.in-progress {
+    background-color: #1dcd9f;
+    color: #fff;
+}
+.status.completed {
+    background-color: #222;
+    color: #fff;
+}
+.status.cancelled {
+    background-color: #d91111;
+    color: #fff;
+}
+.status.started {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #1dcd9f;
+}
+.status.waiting {
+    background-color: #169976;
+    color: #fff;
+}
+.status.scheduled {
+    background-color: #fff;
+    color: rgba(34, 34, 34, 0.3);
+    border: 1px solid rgba(34, 34, 34, 0.3);
+}
+
+.detail-link {
+    font-size: 10px;
+    color: #111;
     font-weight: 500;
+    border-bottom: 1px solid #169976;
+    margin-left: auto;
     cursor: pointer;
 }
