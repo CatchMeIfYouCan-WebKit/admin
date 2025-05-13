@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../Signup.css';
-
 import SignupBody from './SignupBody2';
 
 export default function Signup2() {
-    const [fadeOut, setFadeOut] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const vetData = location.state;
+    const [fadeOut, setFadeOut] = useState(false);
+
+    console.log('[Signup2] 전달받은 데이터:', vetData);
 
     const goBack = () => {
         setFadeOut(true);
@@ -25,7 +28,7 @@ export default function Signup2() {
                 <h1>회원가입</h1>
             </header>
 
-            <SignupBody />
+            <SignupBody vetData={vetData} />
         </div>
     );
 }
