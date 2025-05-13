@@ -43,7 +43,7 @@
 .search-bar {
     display: flex;
     align-items: center;
-    border: 1.5px solid #c4e3d3;
+    border: 2px solid #169976;
     border-radius: 30px;
     padding: 10px 16px;
     margin: 12px 20px 20px 20px;
