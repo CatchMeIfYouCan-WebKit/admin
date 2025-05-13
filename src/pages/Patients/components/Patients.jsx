@@ -24,9 +24,7 @@ export default function Patients() {
         <div className="patients-container">
             <header className="patients-header">
                 <h1>환자 관리</h1>
-                <div className="header-icons">
-                    <FontAwesomeIcon icon={faBell} size="lg" />
-                </div>
+                <div className="header-icons"></div>
             </header>
 
             <div className="search-bar">

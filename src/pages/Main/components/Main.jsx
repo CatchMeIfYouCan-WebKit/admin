@@ -40,9 +40,7 @@ export default function Main() {
                     <img src={defaultImg} alt="logo" />
                     <span>CatchVet</span>
                 </div>
-                <button className="vet-bell-btn">
-                    <FontAwesomeIcon icon={faBell} />
-                </button>
+                <button className="vet-bell-btn"></button>
             </header>
 
             <main className="vet-main-content">

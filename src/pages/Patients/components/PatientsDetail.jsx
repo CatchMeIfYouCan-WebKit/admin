@@ -45,6 +45,10 @@ export default function PatientsDetail() {
                     <div className="name">KR-000-000-00000</div>
                 </div>
                 <div className="info-row3">
+                    <div className="label2">보호자명</div>
+                    <div className="name">한민규</div>
+                </div>
+                <div className="info-row3">
                     <div className="label2">대면진료</div>
                     <div className="name">1회</div>
                 </div>

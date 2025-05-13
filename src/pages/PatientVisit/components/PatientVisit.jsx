@@ -54,7 +54,6 @@ export default function PatientVisit() {
                     <IoIosArrowBack />
                 </button>
                 <h1 className="visit-title2">환자 예약 및 진료</h1>
-                <FontAwesomeIcon icon={faBell} className="header-bell2" />
             </header>
 
             <div className="visit-tabs">
