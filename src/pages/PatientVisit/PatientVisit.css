@@ -1,5 +1,3 @@
-/* src/pages/PatientVist/components/PatientVisit.css */
-
 .visit-container {
     width: 100vw;
     min-height: 100vh;
@@ -8,19 +6,44 @@
     box-sizing: border-box;
 }
 
+/* ✅ 헤더 (3단 구성) */
 .visit-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid #ddd;
-    font-size: 20px;
-    font-weight: bold;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    position: relative;
 }
 
-.header-bell {
+.visit-title2 {
     font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 12px !important;
+    flex: 1;
+    margin: 0;
+}
+
+.back-button3 {
+    background: none;
+    border: none;
+    font-size: 24px;
+    margin-left: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+}
+
+.header-bell2 {
+    font-size: 24px;
     color: #444;
+    z-index: 1;
+    margin-right: 8px;
 }
 
 .visit-tabs {
@@ -130,9 +153,23 @@
 }
 
 .record-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 15px;
     font-weight: bold;
     margin-bottom: 6px;
+}
+
+.time-label {
+    flex-shrink: 0;
+}
+
+.tag-group {
+    display: flex;
+    gap: 6px;
+    min-width: 120px;
+    justify-content: flex-start;
 }
 
 .record-type {
@@ -190,4 +227,99 @@
     background-color: #ddd;
     color: #aaa;
     cursor: not-allowed;
+}
+
+.status {
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 24px;
+}
+
+.status.in-progress {
+    background-color: #1dcd9f;
+    color: #ffffff;
+}
+
+.status.completed {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.status.cancelled {
+    background-color: #d91111;
+    color: #ffffff;
+}
+
+.status.started {
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #1dcd9f;
+}
+
+.status.waiting {
+    background-color: #169976;
+    color: #ffffff;
+}
+
+.status.scheduled {
+    background-color: white;
+    color: rgba(34, 34, 34, 0.3);
+    border: 1px solid rgba(34, 34, 34, 0.3);
+}
+
+.detail-link {
+    font-size: 10px;
+    color: #111;
+    font-weight: 500;
+    border-bottom: 1px solid #169976;
+    margin-left: auto;
+    cursor: pointer;
+}
+.reception-date2 {
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 12px;
+    text-align: left;
+}
+.down-arrow-icon {
+    margin-left: 4px;
+    width: 12px;
+    height: 12px;
+}
+.date-selector-wrapper {
+    position: relative;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.date-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 6px 0;
+    border-radius: 6px;
+}
+
+.date-dropdown li {
+    padding: 6px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.date-dropdown li:hover {
+    background-color: #f0f0f0;
 }

@@ -12,9 +12,25 @@ export default function Main() {
     const navigate = useNavigate();
     const [isRotating, setIsRotating] = useState(false);
 
+    // 현재 시간 (최근 갱신용)
+    const [lastUpdated, setLastUpdated] = useState(() => {
+        const now = new Date();
+        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    });
+
+    // 현재 날짜 (금일 기준)
+    const today = new Date();
+    const formattedDate = `${today.getFullYear().toString().slice(2)}.${String(today.getMonth() + 1).padStart(
+        2,
+        '0'
+    )}.${String(today.getDate()).padStart(2, '0')}`; // 예: 25.05.13
+
     const handleRotate = () => {
         setIsRotating(true);
-        setTimeout(() => setIsRotating(false), 500); // 0.5초 뒤 애니메이션 제거
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        setLastUpdated(timeString);
+        setTimeout(() => setIsRotating(false), 500);
     };
 
     return (
@@ -72,7 +88,7 @@ export default function Main() {
                             상세보기
                         </span>
                     </div>
-                    <div className="vet-subtext">금일 25.05.08 기준</div>
+                    <div className="vet-subtext">금일 {formattedDate} 기준</div>
                     <div className="vet-table">
                         <div className="vet-table-row header">
                             <div>환자명</div>
@@ -110,12 +126,12 @@ export default function Main() {
                 <section className="vet-card">
                     <div className="vet-title-row">
                         <span>진료현황</span>
-                        <span className="vet-refresh-text-2">최근 15:32</span>
+                        <span className="vet-refresh-text-2">최근 {lastUpdated}</span>
                         <button className={`vet-refresh-btn ${isRotating ? 'rotate' : ''}`} onClick={handleRotate}>
                             <img src={renew} alt="새로고침" />
                         </button>
                     </div>
-                    <div className="vet-subtext">금일 25.05.08 기준</div>
+                    <div className="vet-subtext">금일 {formattedDate} 기준</div>
                     <div className="vet-status-row">
                         <div className="vet-status-box">
                             <div className="vet-status-number">8</div>

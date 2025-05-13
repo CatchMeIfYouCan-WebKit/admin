@@ -1,17 +1,60 @@
 // src/pages/PatientVist/components/PatientVisit.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../PatientVisit.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-
+import { IoIosArrowBack } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
+import arrow from '../../../assets/downarrow.svg';
 export default function PatientVisit() {
     const [tab, setTab] = useState('reservation');
+    const [showDateList, setShowDateList] = useState(false);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [dateOptions, setDateOptions] = useState([]);
 
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1); // 뒤로 가기
+    };
+
+    useEffect(() => {
+        const days = ['일', '월', '화', '수', '목', '금', '토'];
+        const today = new Date();
+        const options = [];
+
+        for (let i = 0; i <= 5; i++) {
+            const date = new Date();
+            date.setDate(today.getDate() - i);
+
+            const yyyy = date.getFullYear();
+            const mm = String(date.getMonth() + 1).padStart(2, '0');
+            const dd = String(date.getDate()).padStart(2, '0');
+            const day = days[date.getDay()];
+
+            options.push(`${yyyy}.${mm}.${dd} (${day})`);
+        }
+
+        setDateOptions(options);
+        setSelectedDate(options[0]); // 오늘 날짜로 설정
+    }, []);
+
+    const toggleDateList = () => {
+        setShowDateList((prev) => !prev);
+    };
+
+    const handleDateSelect = (date) => {
+        setSelectedDate(date);
+        setShowDateList(false);
+    };
     return (
         <div className="visit-container">
             <header className="visit-header">
-                <h2>환자 예약 및 진료</h2>
-                <FontAwesomeIcon icon={faBell} className="header-bell" />
+                <button className="back-button3" onClick={goBack}>
+                    <IoIosArrowBack />
+                </button>
+                <h1 className="visit-title2">환자 예약 및 진료</h1>
+
+                <FontAwesomeIcon icon={faBell} className="header-bell2" />
             </header>
 
             <div className="visit-tabs">
@@ -26,6 +69,7 @@ export default function PatientVisit() {
             <div className="visit-content">
                 {tab === 'reservation' ? (
                     <div className="reservation-tab">
+                        {/* 예약관리 기존 내용 유지 */}
                         <div className="reservation-header">
                             <label>
                                 <input type="checkbox" /> 전체선택
@@ -80,67 +124,132 @@ export default function PatientVisit() {
                     </div>
                 ) : (
                     <div className="records-tab">
-                        <div className="records-date">2025.06.12 (금)</div>
-
-                        <div className="record-box">
-                            <div className="record-time">
-                                첫 번째 진료 09:00 <span className="tag green">진료중</span>
+                        <div className="date-selector-wrapper">
+                            <div className="reception-date2" onClick={toggleDateList}>
+                                {selectedDate}
+                                <img src={arrow} alt="화살표" className="down-arrow-icon" />
                             </div>
-                            <div className="record-type">비대면진료</div>
-                            <div>환자명 김형규</div>
-                            <div>보호자명 김형규</div>
-                            <div>방문목적 예방접종</div>
-                            <div className="record-detail">상세보기</div>
-                            <button className="chart-btn">차트 작성하기</button>
+
+                            {showDateList && (
+                                <ul className="date-dropdown">
+                                    {dateOptions.map((date, index) => (
+                                        <li key={index} onClick={() => handleDateSelect(date)}>
+                                            {date}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
 
-                        <div className="record-box">
-                            <div className="record-time">
-                                두 번째 진료 10:00 <span className="tag dark">진료완료</span>
+                        {/* 진료 카드 1 */}
+                        <div className="reception-card">
+                            <div className="reception-card-header">
+                                <span className="reception-time">첫 번째 진료 09:00</span>
+                                <div className="reception-status-group">
+                                    <span className="status in-progress">진료중</span>
+                                </div>
+                                <span className="reception-method">비대면진료</span>
                             </div>
-                            <div className="record-type">대면진료</div>
-                            <div>환자명 김형규</div>
-                            <div>보호자명 김형규</div>
-                            <div>방문목적 예방접종</div>
-                            <div className="record-detail">상세보기</div>
-                            <button className="chart-btn disabled">차트 작성하기</button>
+                            <div className="reception-info">
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">환자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">보호자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">방문목적</span>
+                                    <span className="reception-info-value">예방접종</span>
+                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                </div>
+                            </div>
+                            <button className="btn-done active">차트 작성하기</button>
                         </div>
 
-                        <div className="record-box">
-                            <div className="record-time">
-                                세 번째 진료 11:30 <span className="tag red">진료취소</span>
+                        {/* 진료 카드 2 */}
+                        <div className="reception-card">
+                            <div className="reception-card-header">
+                                <span className="reception-time">두 번째 진료 10:00</span>
+                                <div className="reception-status-group">
+                                    <span className="status completed">진료완료</span>
+                                    <span className="status cancelled">진료취소</span>
+                                </div>
+                                <span className="reception-method">대면진료</span>
                             </div>
-                            <div className="record-type">대면진료</div>
-                            <div>환자명 김형규</div>
-                            <div>보호자명 김형규</div>
-                            <div>방문목적 예방접종</div>
-                            <div className="record-detail">상세보기</div>
-                            <button className="chart-btn disabled">차트 작성하기</button>
+                            <div className="reception-info">
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">환자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">보호자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">방문목적</span>
+                                    <span className="reception-info-value">예방접종</span>
+                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                </div>
+                            </div>
+                            <button className="btn-done inactive">차트 작성완료</button>
                         </div>
 
-                        <div className="record-box">
-                            <div className="record-time">
-                                네 번째 진료 16:00 <span className="tag green">진료대기</span>{' '}
-                                <span className="tag">진료시작</span>
+                        {/* 진료 카드 3 */}
+                        <div className="reception-card">
+                            <div className="reception-card-header">
+                                <span className="reception-time">세 번째 진료 11:30</span>
+                                <div className="reception-status-group">
+                                    <span className="status waiting">진료대기</span>
+                                    <span className="status started">진료시작</span>
+                                </div>
+                                <span className="reception-method">대면진료</span>
                             </div>
-                            <div className="record-type">비대면진료</div>
-                            <div>환자명 김형규</div>
-                            <div>보호자명 김형규</div>
-                            <div>방문목적 예방접종</div>
-                            <div className="record-detail">상세보기</div>
-                            <button className="chart-btn disabled">차트 작성하기</button>
+                            <div className="reception-info">
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">환자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">보호자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">방문목적</span>
+                                    <span className="reception-info-value">예방접종</span>
+                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                </div>
+                            </div>
+                            <button className="btn-done inactive">차트 작성완료</button>
                         </div>
 
-                        <div className="record-box">
-                            <div className="record-time">
-                                네 번째 진료 16:00 <span className="tag gray">진료예정</span>
+                        {/* 진료 카드 4 */}
+                        <div className="reception-card">
+                            <div className="reception-card-header">
+                                <span className="reception-time">네 번째 진료 11:30</span>
+                                <div className="reception-status-group">
+                                    <span className="status scheduled">진료예정</span>
+                                    <span className="status started">진료시작</span>
+                                </div>
+                                <span className="reception-method">대면진료</span>
                             </div>
-                            <div className="record-type">비대면진료</div>
-                            <div>환자명 김형규</div>
-                            <div>보호자명 김형규</div>
-                            <div>방문목적 예방접종</div>
-                            <div className="record-detail">상세보기</div>
-                            <button className="chart-btn disabled">차트 작성하기</button>
+                            <div className="reception-info">
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">환자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">보호자명</span>
+                                    <span className="reception-info-value">김형규</span>
+                                </div>
+                                <div className="reception-info-item">
+                                    <span className="reception-info-label">방문목적</span>
+                                    <span className="reception-info-value">예방접종</span>
+                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                </div>
+                            </div>
+                            <button className="btn-done inactive">차트 작성완료</button>
                         </div>
                     </div>
                 )}
