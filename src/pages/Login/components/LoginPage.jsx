@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../LoginPage.css';
 import logo from '../../../assets/logo2.png';
+import axios from 'axios';
 
 const LoginPage = () => {
+    const navigate = useNavigate();
     const [userId, setUserId] = useState('');
     const [userPw, setUserPw] = useState('');
     const [fade, setFade] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
 
     const isValid = userId.trim() !== '' && userPw.trim() !== '';
 
@@ -26,34 +27,20 @@ const LoginPage = () => {
         setIsLoading(true);
 
         try {
-            const res = await fetch('/api/member/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    loginId: userId,
-                    password: userPw,
-                }),
+            const res = await axios.post('/api/vet/login', {
+                loginId: userId,
+                password: userPw,
             });
 
-            const result = await res.json();
-            const { rsltCode, rsltMsg, accessToken } = result.body;
-            console.log(result);
-
-            if (rsltCode === '0000') {
-                localStorage.setItem('accessToken', accessToken); // 토큰 저장
-                navigate('/main');
-            } else if (rsltCode === '1001') {
-                alert('아이디 또는 비밀번호를 입력해주세요.');
-            } else if (rsltCode === '2001') {
-                alert('아이디 혹은 비밀번호가 맞지 않습니다.');
-            } else {
-                alert(rsltMsg || '로그인 실패');
+            if (res.status === 200) {
+                console.log('로그인 성공:', res.data);
+                navigate('/main'); // 로그인 성공 시 메인 화면으로 이동
             }
-        } catch (error) {
-            console.error('로그인 에러:', error);
-            alert('서버 오류');
+        } catch (e) {
+            console.error('로그인 실패:', e);
+            alert(e.response?.data?.message || '서버 오류');
         } finally {
-            setIsLoading(false);
+            setIsLoading(false); // ✅ 로딩 끝 (성공, 실패 상관없이)
         }
     };
 
@@ -101,7 +88,6 @@ const LoginPage = () => {
                         </button>
                     </div>
                 </form>
-
 
                 <div className="login-links">
                     <span className="link-button" onClick={() => handleNavigate('/signup')}>
