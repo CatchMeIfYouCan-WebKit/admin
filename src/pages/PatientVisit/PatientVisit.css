@@ -75,32 +75,48 @@
 
 .reservation-header {
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 12px;
+    text-align: left;
+    font-weight: 500;
+    justify-content: flex-start; /* ✅ 왼쪽 정렬 */
+    margin-left: 0px !important;
+
+    margin-left: 5px;
 }
 
 .reservation-date {
     margin: 16px 0 8px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
 }
 
 .reservation-card {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    border: 1px solid #ccc;
+
     padding: 12px;
     border-radius: 10px;
     margin-bottom: 12px;
-    background-color: #f9f9f9;
 }
 
-.reservation-card.cancelled {
-    background-color: #fff0f0;
+.reservation-info .info-label {
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 6px;
+    color: #d9d9d9;
+    text-align: left;
 }
 
-.reservation-info div {
-    font-size: 14px;
-    margin: 2px 0;
+.reservation-info .info-value {
+    width: 90px; /* ✅ 고정 너비: 모든 항목이 이 기준으로 정렬됨 */
+    font-size: 12px;
+    font-weight: 500;
+
+    color: #000000;
+    font-weight: normal;
+    text-align: left !important;
 }
 
 .reservation-status {
@@ -289,6 +305,25 @@
     margin-bottom: 12px;
     text-align: left;
 }
+
+.reception-info-label2 {
+    color: rgba(34, 34, 34, 0.3); /* 0.3은 30% 불투명도 */
+    min-width: 90px; /* 라벨 길이 고정 */
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.reception-info-value2 {
+    color: #111; /* 진한 글씨 */
+    margin-left: -10px;
+    min-width: 90px; /* 라벨 길이 고정 */
+    margin-left: -40px;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
 .down-arrow-icon {
     margin-left: 4px;
     width: 12px;
@@ -322,4 +357,65 @@
 
 .date-dropdown li:hover {
     background-color: #f0f0f0;
+}
+.info-row.with-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px; /* 간격만 조절 */
+}
+
+.info-row.with-action {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* 간격만 조절 */
+}
+
+.info-row.with-action .info-label,
+.info-row.with-action .info-value {
+    flex: none;
+}
+
+.reservation-action-text-wrapper {
+    margin-top: 6px;
+    text-align: right;
+}
+
+.reservation-action-text {
+    font-size: 12px;
+    color: #888;
+    font-weight: 400;
+    border-bottom: 1px solid #ccc;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.reservation-date-with-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+}
+
+input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    accent-color: #169976;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.reservation-date-text {
+    color: #222;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    gap: 6px; /* 체크박스와 텍스트 사이 간격 */
+    font-size: 14px; /* 텍스트 크기 */
+    font-weight: 500;
+    cursor: pointer;
 }

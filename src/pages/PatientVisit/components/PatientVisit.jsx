@@ -71,24 +71,42 @@ export default function PatientVisit() {
                     <div className="reservation-tab">
                         {/* 예약관리 기존 내용 유지 */}
                         <div className="reservation-header">
-                            <label>
+                            <label className="checkbox-label">
                                 <input type="checkbox" /> 전체선택
                             </label>
                         </div>
 
-                        <div className="reservation-date">2025.05.09</div>
+                        <div className="reservation-date-with-checkbox">
+                            <label className="reservation-date-checkbox">
+                                <input type="checkbox" />
+                            </label>
+                            <span className="reservation-date-text">2025.05.09</span>
+                        </div>
+
                         <div className="reservation-card">
                             <label>
                                 <input type="checkbox" />
                             </label>
                             <div className="reservation-info">
-                                <div>환자명: 이명재</div>
-                                <div>방문 목적: 예방접종</div>
-                                <div>진료 일시: 10:00</div>
-                                <div>진료 방식: 대면</div>
+                                <div className="info-row">
+                                    <span className="info-label">환자명</span>
+                                    <span className="info-value">이명재</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">방문 목적</span>
+                                    <span className="info-value">예방접종</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">진료 일시</span>
+                                    <span className="info-value">10:00</span>
+                                </div>
+                                <div className="info-row with-action">
+                                    <span className="info-label">진료 방식</span>
+                                    <span className="info-value">대면</span>
+                                    <span className="reservation-action-text">예약취소</span>
+                                </div>
                             </div>
                             <div className="reservation-status green">수락대기</div>
-                            <div className="reservation-action">예약취소</div>
                         </div>
 
                         <div className="reservation-card">
@@ -96,28 +114,58 @@ export default function PatientVisit() {
                                 <input type="checkbox" />
                             </label>
                             <div className="reservation-info">
-                                <div>환자명: 이명재</div>
-                                <div>방문 목적: 예방접종</div>
-                                <div>진료 일시: 11:30</div>
-                                <div>진료 방식: 대면</div>
+                                <div className="info-row">
+                                    <span className="info-label">환자명</span>
+                                    <span className="info-value">이명재</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">방문 목적</span>
+                                    <span className="info-value">예방접종</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">진료 일시</span>
+                                    <span className="info-value">10:00</span>
+                                </div>
+                                <div className="info-row with-action">
+                                    <span className="info-label">진료 방식</span>
+                                    <span className="info-value">대면</span>
+                                    <span className="reservation-action-text">예약취소</span>
+                                </div>
                             </div>
                             <div className="reservation-status dark">예약완료</div>
-                            <div className="reservation-action">예약취소</div>
                         </div>
 
-                        <div className="reservation-date">2025.05.10</div>
-                        <div className="reservation-card cancelled">
-                            <label>
+                        <div className="reservation-date-with-checkbox">
+                            <label className="checkbox-label">
+                                <input type="checkbox" />
+                            </label>
+                            <span className="reservation-date-text">2025.05.10</span>
+                        </div>
+
+                        <div className="reservation-card">
+                            <label className="checkbox-label">
                                 <input type="checkbox" />
                             </label>
                             <div className="reservation-info">
-                                <div>환자명: 이명재</div>
-                                <div>방문 목적: 예방접종</div>
-                                <div>진료 일시: 25.06.25 10:00</div>
-                                <div>진료 방식: 대면</div>
+                                <div className="info-row">
+                                    <span className="info-label">환자명</span>
+                                    <span className="info-value">이명재</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">방문 목적</span>
+                                    <span className="info-value">예방접종</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">진료 일시</span>
+                                    <span className="info-value">10:00</span>
+                                </div>
+                                <div className="info-row with-action">
+                                    <span className="info-label">진료 방식</span>
+                                    <span className="info-value">대면</span>
+                                    <span className="reservation-action-text">취소사유</span>
+                                </div>
                             </div>
                             <div className="reservation-status red">예약취소</div>
-                            <div className="reservation-action">취소사유</div>
                         </div>
 
                         <button className="submit-btn">예약수락</button>
@@ -152,20 +200,21 @@ export default function PatientVisit() {
                             </div>
                             <div className="reception-info">
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">환자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">환자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">보호자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">보호자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">방문목적</span>
-                                    <span className="reception-info-value">예방접종</span>
-                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                    <span className="reception-info-label2">방문목적</span>
+                                    <span className="reception-info-value2">예방접종</span>
                                 </div>
                             </div>
-                            <button className="btn-done active">차트 작성하기</button>
+                            <button className="btn-done active" onClick={() => navigate('/main/patients/detail')}>
+                                차트 작성하기
+                            </button>
                         </div>
 
                         {/* 진료 카드 2 */}
@@ -180,17 +229,16 @@ export default function PatientVisit() {
                             </div>
                             <div className="reception-info">
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">환자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">환자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">보호자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">보호자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">방문목적</span>
-                                    <span className="reception-info-value">예방접종</span>
-                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                    <span className="reception-info-label2">방문목적</span>
+                                    <span className="reception-info-value2">예방접종</span>
                                 </div>
                             </div>
                             <button className="btn-done inactive">차트 작성완료</button>
@@ -208,17 +256,16 @@ export default function PatientVisit() {
                             </div>
                             <div className="reception-info">
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">환자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">환자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">보호자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">보호자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">방문목적</span>
-                                    <span className="reception-info-value">예방접종</span>
-                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                    <span className="reception-info-label2">방문목적</span>
+                                    <span className="reception-info-value2">예방접종</span>
                                 </div>
                             </div>
                             <button className="btn-done inactive">차트 작성완료</button>
@@ -236,17 +283,16 @@ export default function PatientVisit() {
                             </div>
                             <div className="reception-info">
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">환자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">환자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">보호자명</span>
-                                    <span className="reception-info-value">김형규</span>
+                                    <span className="reception-info-label2">보호자명</span>
+                                    <span className="reception-info-value2">김형규</span>
                                 </div>
                                 <div className="reception-info-item">
-                                    <span className="reception-info-label">방문목적</span>
-                                    <span className="reception-info-value">예방접종</span>
-                                    <span className="detail-link">상세보기</span> {/* ✅ 추가 */}
+                                    <span className="reception-info-label2">방문목적</span>
+                                    <span className="reception-info-value2">예방접종</span>
                                 </div>
                             </div>
                             <button className="btn-done inactive">차트 작성완료</button>
